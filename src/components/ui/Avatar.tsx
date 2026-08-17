@@ -1,0 +1,23 @@
+import './Avatar.css'
+
+type AvatarProps = {
+  name: string
+  src?: string
+  size?: 'sm' | 'md' | 'lg'
+}
+
+function initials(name: string) {
+  return name
+    .split(' ')
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase() ?? '')
+    .join('')
+}
+
+export function Avatar({ name, src, size = 'md' }: AvatarProps) {
+  return (
+    <span className={`avatar avatar-${size}`} title={name}>
+      {src ? <img src={src} alt={name} /> : initials(name)}
+    </span>
+  )
+}
