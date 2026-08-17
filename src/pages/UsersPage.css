@@ -1,0 +1,47 @@
+.users-page {
+  display: grid;
+  gap: 16px;
+}
+
+.users-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px;
+  align-items: center;
+}
+
+.users-toolbar .field,
+.users-toolbar .search-input {
+  width: 220px;
+  min-width: 180px;
+}
+
+.users-bulk,
+.users-select-all {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px 12px;
+  font-size: 13px;
+}
+
+.users-bulk {
+  background: var(--primary-soft);
+  margin: 0 16px 8px;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.user-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-cell em {
+  display: block;
+  font-style: normal;
+  color: var(--text-muted);
+  font-size: 12px;
+}
