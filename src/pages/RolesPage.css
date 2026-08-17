@@ -1,0 +1,10 @@
+.roles-page {
+  display: grid;
+  gap: 16px;
+}
+
+.role-permissions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
