@@ -1,9 +1,10 @@
+import type { ReactNode } from 'react'
 import './Badge.css'
 
 type BadgeTone = 'neutral' | 'success' | 'warning' | 'danger' | 'info' | 'primary'
 
 type BadgeProps = {
-  children: string
+  children: ReactNode
   tone?: BadgeTone
 }
 
