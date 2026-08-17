@@ -17,6 +17,7 @@ import {
 } from '../components/ui'
 import type { Column } from '../components/ui'
 import { formatDateTime } from '../lib/format'
+import { filterUsers } from '../lib/users'
 import type { User, UserRole, UserStatus } from '../types/user'
 import { InviteUserModal } from '../components/users/InviteUserModal'
 import { UserRoleBadge } from '../components/users/UserRoleBadge'
@@ -39,15 +40,10 @@ export function UsersPage() {
   const role = (params.get('role') ?? 'all') as UserRole | 'all'
   const status = (params.get('status') ?? 'all') as UserStatus | 'all'
 
-  const filtered = useMemo(() => {
-    return users.filter((user) => {
-      const haystack = `${user.name} ${user.email} ${user.department}`.toLowerCase()
-      const matchesQuery = haystack.includes(query.toLowerCase())
-      const matchesRole = role === 'all' || user.role === role
-      const matchesStatus = status === 'all' || user.status === status
-      return matchesQuery && matchesRole && matchesStatus
-    })
-  }, [users, query, role, status])
+  const filtered = useMemo(
+    () => filterUsers(users, { query, role, status }),
+    [users, query, role, status],
+  )
 
   const paged = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
 

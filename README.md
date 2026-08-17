@@ -7,6 +7,7 @@ React admin panel for managing workspace users: list, search, filter, invite, cr
 ```bash
 npm install
 npm run dev
+npm test
 npm run build
 ```
 
